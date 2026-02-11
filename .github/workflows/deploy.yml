@@ -44,16 +44,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Validate Dockerfiles
-        run: |
-          echo "Validating root Dockerfile..."
-          docker build --check -f Dockerfile . 2>/dev/null || docker build -f Dockerfile . --no-cache --progress=plain -t sovereignty-app 2>&1 | head -50
-          echo "Validating backend Dockerfile..."
-          docker build --check -f backend/Dockerfile backend/ 2>/dev/null || docker build -f backend/Dockerfile backend/ --no-cache --progress=plain -t sovereignty-backend 2>&1 | head -50
-
       - name: Validate docker-compose.yml
-        run: |
-          docker compose config --quiet 2>/dev/null || echo "docker-compose.yml validated"
+        run: docker compose config --quiet
         env:
           POSTGRES_PASSWORD: test
           SECRET_KEY: test

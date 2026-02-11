@@ -12,8 +12,11 @@ if [ ! -f .env ]; then
     exit 1
 fi
 
-# --- Validate required env vars ---
-source .env
+# --- Load and validate required env vars ---
+set -a
+# shellcheck disable=SC1091
+. .env
+set +a
 for var in POSTGRES_PASSWORD SECRET_KEY; do
     if [ -z "${!var:-}" ]; then
         echo "ERROR: $var is not set in .env"
