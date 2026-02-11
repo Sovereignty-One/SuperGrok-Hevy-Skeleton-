@@ -8,7 +8,7 @@ from passlib.context import CryptContext
 from app.config import settings
 
 # bcrypt hashing context
-pwd_context = CryptContext(schemes= , deprecated="auto")
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 def create_access_token(
@@ -37,13 +37,13 @@ def get_password_hash(password: str) -> str:
     return pwd_context.hash(password)
 
 
-def verify_token(token: str) -> Optional :
+def verify_token(token: str) -> Optional[str]:
     """Validate JWT and return subject (username) if valid."""
     try:
         payload = jwt.decode(
             token,
             settings.secret_key,
-            algorithms= ,
+            algorithms=[settings.algorithm],
         )
         return payload.get("sub")
     except JWTError:
