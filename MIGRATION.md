@@ -31,10 +31,12 @@ git remote set-url origin https://github.com/sovereignty-one/Sovereignty-AI-Stud
 Push all branches and tags to the new repository:
 
 ```bash
-# Push the main branch
+# Push the main branch with upstream tracking
 git push -u origin main
 
-# Push all branches
+# Push all other branches
+# Note: This will push all local branches. If you need to migrate remote branches
+# that don't exist locally, first fetch them with: git fetch --all
 git push --all
 
 # Push all tags
@@ -56,5 +58,7 @@ git remote -v
 ## Notes
 
 - Ensure you have proper permissions to push to the new repository before starting the migration
+- The `git push --all` command only pushes branches that exist in your local repository. If the old repository has remote branches that you haven't checked out locally, they won't be automatically migrated. To migrate all remote branches, you may need to check them out locally first or use a more comprehensive migration tool
+- The `git push -u origin main` command is included to set up tracking for the main branch before pushing all branches. While `git push --all` will also push main, the initial command with `-u` ensures proper upstream tracking is configured
 - This process will not delete the old repository; you'll need to archive or delete it separately if needed
 - Update any CI/CD pipelines, webhooks, or external integrations to point to the new repository URL
