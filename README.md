@@ -16,6 +16,7 @@ cd Sovereignty-AI-Studio
 git remote set-url origin https://github.com/sovereignty-one/Sovereignty-AI-Studio.git
 
 # Push all branches and tags
+git push -u origin main
 git push --all
 git push --tags
 ```
