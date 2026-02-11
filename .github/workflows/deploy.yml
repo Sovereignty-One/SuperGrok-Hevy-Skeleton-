@@ -45,15 +45,12 @@ jobs:
 
       - name: Build backend Docker image
         run: docker build -t sovereignty-backend ./backend
-        working-directory: Sovereignty-AI-Studio-main
 
       - name: Build frontend Docker image
         run: docker build -t sovereignty-frontend ./frontend
-        working-directory: Sovereignty-AI-Studio-main
 
       - name: Verify Docker Compose config
         run: docker compose config --quiet
-        working-directory: Sovereignty-AI-Studio-main
         env:
           POSTGRES_PASSWORD: ci-test-password
           SECRET_KEY: ci-test-secret-key-for-validation-only-1234
