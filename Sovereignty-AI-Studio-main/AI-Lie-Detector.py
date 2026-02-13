@@ -1,4 +1,4 @@
-# lie_detector.py – standalone, drop-in
+# ai (self) lie_detector.py – standalone, drop-in
 import torch
 import numpy as np
 from sklearn.linear_model import LogisticRegression  # baked-in tiny model
