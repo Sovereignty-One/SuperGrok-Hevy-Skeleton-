@@ -1,3 +1,11 @@
+# copilot/update-remote-repo-url
+# SuperGrok-Hevy-Skeleton-
+The entire skeleton 
+
+## Documentation
+
+- [Migration Guide](MIGRATION.md) - Instructions for migrating the Sovereignty-AI-Studio repository from the old organization to the new organization
+=======
 # SuperGrok-Hevy-Skeleton
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
@@ -536,3 +544,4 @@ For questions, issues, or collaboration inquiries:
 **Version**: 1.0.0  
 **Status**: Active Development  
 **Core Model**: Super Grok Heavy 4.2
+main
